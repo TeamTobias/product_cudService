@@ -43,7 +43,7 @@ public class ProductController{
         }
 
         @PostMapping("/product/v1/{itemId}/{saleRate}")
-        public void setProductSale(@PathVariable("itemId") int itemId,@PathVariable("saleRate") double saleRate){
+        public void setProductSale(@PathVariable("itemId") int itemId,@PathVariable("saleRate") int saleRate){
             productService.setProductSale(itemId,saleRate);
         }
 
@@ -57,7 +57,7 @@ public class ProductController{
 
         @PutMapping("/product/v1/{productId}/{amount}")
         public void setProductCount(@PathVariable("productId") int productId,@PathVariable("amount") int amount){
-            productService.setProductSale(productId,amount);
+            productService.setProductCount(productId,amount);
         }
 
 }

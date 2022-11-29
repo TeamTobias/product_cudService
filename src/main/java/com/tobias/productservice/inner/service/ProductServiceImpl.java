@@ -38,13 +38,17 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteByItemId(itemId);
     }
 
-    public void setProductSale(int itemId, double saleRate){
+    public void setProductSale(int itemId, int saleRate){
         List<Product> products = productRepository.findByItemId(itemId);
         for(Product product : products){
-            if(saleRate == 0)
+            if(saleRate == 0) {
                 product.setSaleActive(false);
-            else
+                product.setSalePrice(product.getPrice());
+            }
+            else {
                 product.setSaleActive(true);
+                product.setSalePrice(product.getPrice()-(product.getPrice()*saleRate/100));
+            }
             product.setSaleRate(saleRate);
             productRepository.save(product);
         }

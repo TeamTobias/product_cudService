@@ -11,10 +11,11 @@ public class ResponseProduct {
     private int salerId;
     private String name;
     private int price;
+    private int salePrice;
     private UUID imgUUID;
     private String size;
     private String color;
     private int count;
     private boolean saleActive;
-    private double saleRate;
+    private int saleRate;
 }

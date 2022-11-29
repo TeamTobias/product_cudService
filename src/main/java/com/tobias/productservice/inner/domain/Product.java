@@ -17,12 +17,13 @@ public class Product {
     private int salerId;
     private String name;
     private int price;
+    private int salePrice;
     private UUID imgUUID;
     private String size;
     private String color;
     private int count;
     private boolean saleActive;
-    private double saleRate;
+    private int saleRate;
 
     public static Product createProduct(RequestProduct requestProduct) {
         Product product = new Product();
@@ -30,6 +31,7 @@ public class Product {
         product.setItemId(requestProduct.getItemId());
         product.setName(requestProduct.getName());
         product.setPrice(requestProduct.getPrice());
+        product.setSalePrice(requestProduct.getPrice());
         product.setImgUUID(requestProduct.getImgUUID());
         product.setColor(requestProduct.getColor());
         product.setCount(0);
