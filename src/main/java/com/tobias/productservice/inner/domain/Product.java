@@ -24,17 +24,17 @@ public class Product {
     private boolean saleActive;
     private double saleRate;
 
-    public static Product createProduct(int salerId, RequestProduct requestProduct) {
+    public static Product createProduct(RequestProduct requestProduct) {
         Product product = new Product();
-        product.setSalerId(salerId);
+        product.setSalerId(requestProduct.getSalerId());
         product.setItemId(requestProduct.getItemId());
         product.setName(requestProduct.getName());
         product.setPrice(requestProduct.getPrice());
         product.setImgUUID(requestProduct.getImgUUID());
         product.setColor(requestProduct.getColor());
         product.setCount(0);
-        product.setSaleActive(requestProduct.isSaleActive());
-        product.setSaleRate(requestProduct.getSaleRate());
+        product.setSaleActive(false);
+        product.setSaleRate(0);
         return product;
     }
 }

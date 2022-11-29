@@ -15,19 +15,48 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
 
-    @Transactional
-    public void addProduct(int salerId, RequestProduct item) {
+    public Iterable<Product> getProductsAll() {return productRepository.findAll();}
 
-        List<Product> products = productRepository.findByItemId(item.getId());
+    public List<Product> getProductsAllBySaleActive(boolean saleActive){return productRepository.findAllBySaleActive(saleActive);}
+
+    @Transactional
+    public void addProduct(RequestProduct item) {
+
+        List<Product> products = productRepository.findByItemId(item.getItemId());
 
         if(products.isEmpty()){
            for(String size : item.getSizes()){
-               Product product = Product.createProduct(salerId, item);
+               Product product = Product.createProduct(item);
                product.setSize(size);
                productRepository.save(product);
            }
         }
     }
+
+    @Transactional
+    public void deleteProduct(int itemId){
+        productRepository.deleteByItemId(itemId);
+    }
+
+    public void setProductSale(int itemId, double saleRate){
+        List<Product> products = productRepository.findByItemId(itemId);
+        for(Product product : products){
+            if(saleRate == 0)
+                product.setSaleActive(false);
+            else
+                product.setSaleActive(true);
+            product.setSaleRate(saleRate);
+            productRepository.save(product);
+        }
+    }
+
+    public void setProductCount(int id, int amount){
+        Product product = productRepository.findById(id);
+        product.setCount(amount);
+        productRepository.save(product);
+    }
+
+
 
 
 }

@@ -6,5 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
-    List<Product> findByItemId(int id);
+    Product findById(int id);
+    List<Product> findByItemId(int itemId);
+    void deleteByItemId(int itemId);
+    List<Product> findAllBySaleActive(boolean saleActive);
 }
