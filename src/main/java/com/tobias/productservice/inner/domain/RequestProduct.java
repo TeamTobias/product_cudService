@@ -13,7 +13,7 @@ public class RequestProduct {
     private String name;
     private int price;
     private UUID imgUUID;
-    private String color;
 
+    List<String> colors;
     List<String> sizes;
 }

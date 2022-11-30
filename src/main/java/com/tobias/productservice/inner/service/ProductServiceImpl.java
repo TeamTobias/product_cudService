@@ -24,12 +24,15 @@ public class ProductServiceImpl implements ProductService {
 
         List<Product> products = productRepository.findByItemId(item.getItemId());
 
-        if(products.isEmpty()){
-           for(String size : item.getSizes()){
-               Product product = Product.createProduct(item);
-               product.setSize(size);
-               productRepository.save(product);
-           }
+        if (products.isEmpty()) {
+            for (String color : item.getColors()) {
+                for (String size : item.getSizes()) {
+                    Product product = Product.createProduct(item);
+                    product.setColor(color);
+                    product.setSize(size);
+                    productRepository.save(product);
+                }
+            }
         }
     }
 
@@ -59,8 +62,4 @@ public class ProductServiceImpl implements ProductService {
         product.setCount(amount);
         productRepository.save(product);
     }
-
-
-
-
 }

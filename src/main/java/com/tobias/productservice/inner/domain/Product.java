@@ -33,7 +33,6 @@ public class Product {
         product.setPrice(requestProduct.getPrice());
         product.setSalePrice(requestProduct.getPrice());
         product.setImgUUID(requestProduct.getImgUUID());
-        product.setColor(requestProduct.getColor());
         product.setCount(0);
         product.setSaleActive(false);
         product.setSaleRate(0);

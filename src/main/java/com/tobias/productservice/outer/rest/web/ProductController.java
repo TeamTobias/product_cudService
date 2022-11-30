@@ -59,5 +59,4 @@ public class ProductController{
         public void setProductCount(@PathVariable("productId") int productId,@PathVariable("amount") int amount){
             productService.setProductCount(productId,amount);
         }
-
 }
