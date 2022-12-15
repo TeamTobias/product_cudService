@@ -29,7 +29,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 
     implementation 'org.modelmapper:modelmapper:3.1.0'
@@ -40,7 +39,8 @@ dependencies {
     implementation 'com.h2database:h2'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 
-
+    /*micrometer*/
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'io.micrometer:micrometer-registry-prometheus:1.10.2'
 
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:3.1.5'
