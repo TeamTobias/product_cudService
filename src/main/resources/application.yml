@@ -25,6 +25,11 @@ spring:
       settings:
         web-allow-others: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 greeting:
   message: Hello from the Product Service - LOCAL
